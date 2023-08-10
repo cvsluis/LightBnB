@@ -24,9 +24,6 @@ const getUserWithEmail = function(email) {
       if (result.rows) {
         return result.rows[0];
       }
-    })
-    .catch((err) => {
-      console.log(err.message);
     });
 };
 
@@ -45,9 +42,6 @@ const getUserWithId = function(id) {
       if (result.rows) {
         return result.rows[0];
       }
-    })
-    .catch((err) => {
-      console.log(err.message);
     });
 };
 
@@ -67,9 +61,6 @@ const addUser = function(user) {
     .query(queryString, queryParams)
     .then((result) => {
       return result.rows;
-    })
-    .catch((err) => {
-      console.log(err.message);
     });
 };
 
@@ -96,9 +87,6 @@ const getAllReservations = function(guestId, limit = 10) {
     .query(queryString, queryParams)
     .then((result) => {
       return result.rows;
-    })
-    .catch((err) => {
-      console.log(err.message);
     });
 };
 
@@ -169,9 +157,6 @@ const getAllProperties = (options, limit = 10) => {
     .query(queryString, queryParams)
     .then((result) => {
       return result.rows;
-    })
-    .catch((err) => {
-      console.log(err.message);
     });
 };
 
@@ -207,11 +192,7 @@ const addProperty = function(property) {
     .query(queryString, queryParams)
     .then((result) => {
       return result.rows;
-    })
-    .catch((err) => {
-      console.log(err.message);
     });
-
 };
 
 module.exports = {
