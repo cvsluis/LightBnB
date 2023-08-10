@@ -1,11 +1,4 @@
-const { Pool } = require('pg');
-
-const pool = new Pool({
-  user: 'vagrant',
-  password: '123',
-  host: 'localhost',
-  database: 'lightbnb'
-});
+const db = require('./index');
 
 /// Users
 
@@ -18,7 +11,7 @@ const getUserWithEmail = function(email) {
   const queryParams = [email];
   const queryString = `SELECT * FROM users WHERE email = $1;`;
 
-  return pool
+  return db
     .query(queryString, queryParams)
     .then((result) => {
       if (result.rows) {
@@ -36,7 +29,7 @@ const getUserWithId = function(id) {
   const queryParams = [id];
   const queryString = `SELECT * FROM users WHERE id = $1;`;
 
-  return pool
+  return db
     .query(queryString, queryParams)
     .then((result) => {
       if (result.rows) {
@@ -57,7 +50,7 @@ const addUser = function(user) {
   VALUES ($1, $2, $3) 
   RETURNING *;`;
 
-  return pool
+  return db
     .query(queryString, queryParams)
     .then((result) => {
       return result.rows;
@@ -83,7 +76,7 @@ const getAllReservations = function(guestId, limit = 10) {
   ORDER BY reservations.start_date
   LIMIT $2;`;
 
-  return pool
+  return db
     .query(queryString, queryParams)
     .then((result) => {
       return result.rows;
@@ -153,7 +146,7 @@ const getAllProperties = (options, limit = 10) => {
   LIMIT $${queryParams.length};
   `;
 
-  return pool
+  return db
     .query(queryString, queryParams)
     .then((result) => {
       return result.rows;
@@ -188,7 +181,7 @@ const addProperty = function(property) {
   VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) 
   RETURNING *;`;
 
-  return pool
+  return db
     .query(queryString, queryParams)
     .then((result) => {
       return result.rows;
