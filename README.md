@@ -17,7 +17,7 @@ This project was built as a part of my learnings at [Lighthouse Labs](https://ww
 7. Go to <http://localhost:3000/> in your browser.
 
 ## ERD
-!["Desktop View"](docs/lightbnb-erd.png)
+!["Entity Relationship Diagram"](docs/lightbnb-erd.png)
 
 ## Project Structure
 
