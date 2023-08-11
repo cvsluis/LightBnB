@@ -16,6 +16,9 @@ This project was built as a part of my learnings at [Lighthouse Labs](https://ww
 6. Start the web server using the `npm run local` command. The app will be served at <http://localhost:3000/>.
 7. Go to <http://localhost:3000/> in your browser.
 
+## ERD
+!["Desktop View"](docs/lightbnb-erd.png)
+
 ## Project Structure
 
 ```
